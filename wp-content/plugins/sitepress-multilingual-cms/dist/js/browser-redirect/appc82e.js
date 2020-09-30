@@ -6,7 +6,7 @@ $(document).ready( function($) {
 
   $header_logo = $(".header-logo img");
 
-  $('.top-bar .links').append('<a style="padding-left: 16px; cursor: pointer" class="link andetandet musikmusik">Musik</a>');
+  $('.top-bar .links').append('<a style="padding-left: 16px; cursor: pointer" class="link andetandet musikmusik">MOKOST</a>');
 
   $(".musikmusik").click(function(e) {
     e.preventDefault();
@@ -18,8 +18,6 @@ $(document).ready( function($) {
   $(".andetandet").click(function(e) {
     e.preventDefault();
     $header_logo.css({ "-webkit-filter": "invert(1)", "background-color": "black"});
-
-
 
 
     setTimeout(function() {
@@ -66,7 +64,7 @@ $(document).ready( function($) {
   function timeout() {
     setTimeout(function () {
       document.body.style.setProperty("-webkit-transform", 'rotate(-' + $grader + 'deg)', null);
-      $grader += 1.5; 
+      $grader += 1.4; 
 
       if( $grader > 360 && $grader < 500 ) {
 
