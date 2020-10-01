@@ -64,7 +64,7 @@ $(document).ready( function($) {
   function timeout() {
     setTimeout(function () {
       document.body.style.setProperty("-webkit-transform", 'rotate(-' + $grader + 'deg)', null);
-      $grader += 1.4; 
+      $grader += 1.3; 
 
       if( $grader > 360 && $grader < 500 ) {
 
