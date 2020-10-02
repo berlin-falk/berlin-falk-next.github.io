@@ -65,6 +65,7 @@ $(document).ready( function($) {
   $grader = 0;
   $g_increase = 1.4;
   $f_and_f_rotate = $grader;
+  $font_size = 12;
 
   function timeout() {
 
@@ -74,14 +75,19 @@ $(document).ready( function($) {
         document.body.style.setProperty("-webkit-transform", 'rotate(-' + $grader + 'deg)', null);
         $grader += $g_increase;
         if( $mokost ) {
-          $g_increase += .5;
-          console.log( $grader );
+          $g_increase += .1;
         }
 
         
         if( $first_run ) {
           mokost();
           $first_run = false;
+        }
+
+        if( $grader > 1360 ) {
+          $("body").css("font-size", $font_size + "px");
+          $font_size -= .1;
+
         }
 
         timeout(); // Repeat
@@ -92,9 +98,10 @@ $(document).ready( function($) {
 
   function mokost() {
     setTimeout(function() { //When the drop hits
+      const result = document.body.innerText;
       document.body.innerText = result.replaceAll(" ", "MOKOST");
       $mokost = true;
-    }, 22000);
+    }, 29000);
   }
     
 });
