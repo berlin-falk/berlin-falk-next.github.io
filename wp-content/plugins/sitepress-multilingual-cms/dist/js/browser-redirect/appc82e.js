@@ -1,7 +1,6 @@
 
 $(document).ready( function($) {
   var width = $(document).width() - $('.header-logo img').width();
-  var $grader = 0;
 
 
   $header_logo = $(".header-logo img");
@@ -60,29 +59,42 @@ $(document).ready( function($) {
 
 
 
+  $first_run = true;
+  var $mokost = false;
+  $rotate = true; 
+  $grader = 0;
+  $g_increase = 1.4;
+  $f_and_f_rotate = $grader;
 
   function timeout() {
+
     setTimeout(function () {
-      document.body.style.setProperty("-webkit-transform", 'rotate(-' + $grader + 'deg)', null);
-      $grader += 1.4; 
 
-      if( $grader > 360 && $grader < 500 ) {
+      if( $rotate ) {
+        document.body.style.setProperty("-webkit-transform", 'rotate(-' + $grader + 'deg)', null);
+        $grader += $g_increase;
+        if( $mokost ) {
+          $g_increase += .5;
+          console.log( $grader );
+        }
 
-            const result = document.body.innerText;
-            document.body.innerText = result.replaceAll(" ", "MOKOST");
+        
+        if( $first_run ) {
+          mokost();
+          $first_run = false;
+        }
 
-          setInterval(function() {
-            const result = document.body.innerText;
-            document.body.innerText = result.replaceAll(" ", "MOKOST");
-          }, 12200)
-
-          $grader = 1000;
-
-          
-      } else {
-        timeout();
-      }
+        timeout(); // Repeat
+      } 
     }, 200);
+
   }
 
+  function mokost() {
+    setTimeout(function() { //When the drop hits
+      document.body.innerText = result.replaceAll(" ", "MOKOST");
+      $mokost = true;
+    }, 22000);
+  }
+    
 });
